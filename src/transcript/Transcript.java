@@ -26,10 +26,12 @@ public class Transcript {
     
     
     Object[] totalWordCount = new Object[2];
+	static double averageSentenceLength=0.0;
+	String[] topFreqWords= new String[3];
     
-    
-	public Transcript() {
+    public Transcript() {
 		// TODO Auto-generated constructor stub
+		
 		
 	}
 
@@ -49,9 +51,14 @@ public class Transcript {
 		 Transcript obj =  new Transcript();
 		 obj.sentencesList.add(sentence);
 		 obj.extractWords(sentence);
-		 //obj.sentencesList.add(sentence);
+		 obj.sentencesList.add(sentence);
 		 
-		 //System.out.println(sentencesList); 
+		 System.out.println("This is the sentence:" +sentencesList); 
+		 
+		 obj.setAverageSentenceLength(sentencesList);
+		 System.out.println("This is the AverageSentenceLength:" +obj.getAverageSentenceLength()); 
+		 
+		 
 	}
 	
 	//part A
@@ -69,7 +76,7 @@ public class Transcript {
 			
 		}
 		
-		System.out.println(wordsList); 
+		System.out.println("this are only words: "+ wordsList); 
 	}
 	
 	//part B
@@ -103,8 +110,29 @@ public class Transcript {
 		return cleanWord;
 	}
 	
+	//Part F
+	/**
+	 * @return the averageSentenceLength
+	 */
+	public double getAverageSentenceLength() {
+		return averageSentenceLength;
+	}
+
+	/**
+	 * @param averageSentenceLength the averageSentenceLength to set
+	 */
+	public static void setAverageSentenceLength(List<String> sentences) {
+		int adding=0;
+		
+		for(int i=0; i<sentences.size(); i++){
+			System.out.println("length sentence: "+sentences.get(i).length());
+			adding=adding+sentences.get(i).length();
+		}
+
+		averageSentenceLength=adding/sentences.size();
+	}
 	
-	
+	//Part C
 	public static void loadStopWords() {
         //load the stopWords in the ArrayList
 		stopWords.clear();
