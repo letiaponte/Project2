@@ -15,9 +15,9 @@ public class Transcript {
 	/**
 	 * 
 	 */
-    static public final List<String> stopWords = new ArrayList<String>();
-    static public final List<String> posetiveLexicons  = new ArrayList<String>();
-    static public final List<String> negativeLexicons  = new ArrayList<String>();
+    static public final List<String> stopWords = new ArrayList<String>(); //stores the stopWords in English
+    static public final List<String> posetiveLexicons  = new ArrayList<String>(); //keeping a number of posetiveLexicons 
+    static public final List<String> negativeLexicons  = new ArrayList<String>(); //keeping a number of negativeLexicons 
     
 	public Transcript() {
 		// TODO Auto-generated constructor stub
@@ -98,121 +98,174 @@ public class Transcript {
 		stopWords.add("his");
 		stopWords.add("how");
 		stopWords.add("how's");
-		
-		
-		/*
-		I
-		I'd
-		I'll
-		I'm
-		I've
-		if
-		in
-		into
-		is
-		isn't
-		it
-		it's
-		its
-		itself
-		let's
-		me
-		more
-		most
-		mustn't
-		my
-		myself
-		no
-		nor
-		not
-		of
-		off
-		on
-		once
-		only
-		or
-		other
-		ought
-		our
-		ours
-		ourselves
-		out
-		over
-		own
-		same
-		shan't
-		she
-		she'd
-		she'll
-		she's
-		should
-		shouldn't
-		so
-		some
-		such
-		than
-		that
-		that's
-		the
-		their
-		theirs
-		them
-		themselves
-		then
-		there
-		there's
-		these
-		they
-		they'd
-		they'll
-		they're
-		they've
-		this
-		those
-		through
-		to
-		too
-		under
-		until
-		up
-		very
-		was
-		wasn't
-		we
-		we'd
-		we'll
-		we're
-		we've
-		were
-		weren't
-		what
-		what's
-		when
-		when's
-		where
-		where's
-		which
-		while
-		who
-		who's
-		whom
-		why
-		why's
-		with
-		won't
-		would
-		wouldn't
-		you
-		you'd
-		you'll
-		you're
-		you've
-		your
-		yours
-		yourself
-		yourselves*/
-
-      
+		stopWords.add("I");
+		stopWords.add("I'd");
+		stopWords.add("I'll");
+		stopWords.add("I'm");
+		stopWords.add("I've");
+		stopWords.add("if");
+		stopWords.add("in");
+		stopWords.add("into");
+		stopWords.add("is");
+		stopWords.add("isn't");
+		stopWords.add("it");
+		stopWords.add("it's");
+		stopWords.add("its");
+		stopWords.add("itself");
+		stopWords.add("let's");
+		stopWords.add("me");
+		stopWords.add("more");
+		stopWords.add("most");
+		stopWords.add("mustn't");
+		stopWords.add("my");
+		stopWords.add("myself");
+		stopWords.add("no");
+		stopWords.add("nor");
+		stopWords.add("not");
+		stopWords.add("of");
+		stopWords.add("off");
+		stopWords.add("on");
+		stopWords.add("once");
+		stopWords.add("only");	
+		stopWords.add("or");
+		stopWords.add("other");
+		stopWords.add("ought");
+		stopWords.add("our");
+		stopWords.add("ours");
+		stopWords.add("ourselves");
+		stopWords.add("out");
+		stopWords.add("over");
+		stopWords.add("own");
+		stopWords.add("same");
+		stopWords.add("shan't");
+		stopWords.add("she");
+		stopWords.add("she'd");
+		stopWords.add("she'll");
+		stopWords.add("she's");
+		stopWords.add("should");
+		stopWords.add("shouldn't");
+		stopWords.add("so");
+		stopWords.add("some");
+		stopWords.add("such");
+		stopWords.add("than");
+		stopWords.add("that");
+		stopWords.add("that's");
+		stopWords.add("the");
+		stopWords.add("their");
+		stopWords.add("theirs");
+		stopWords.add("them");
+		stopWords.add("themselves");
+		stopWords.add("then");
+		stopWords.add("there");
+		stopWords.add("there's");
+		stopWords.add("these");
+		stopWords.add("they");
+		stopWords.add("they'd");
+		stopWords.add("they'll");
+		stopWords.add("they're");
+		stopWords.add("they've");
+		stopWords.add("this");
+		stopWords.add("those");
+		stopWords.add("through");
+		stopWords.add("to");
+		stopWords.add("too");
+		stopWords.add("under");
+		stopWords.add("until");
+		stopWords.add("up");
+		stopWords.add("very");
+		stopWords.add("was");
+		stopWords.add("wasn't");
+		stopWords.add("we");
+		stopWords.add("we'd");
+		stopWords.add("we'll");
+		stopWords.add("we're");
+		stopWords.add("we've");
+		stopWords.add("were");
+		stopWords.add("weren't");
+		stopWords.add("what");
+		stopWords.add("what's");
+		stopWords.add("when");
+		stopWords.add("when's");
+		stopWords.add("where");
+		stopWords.add("where's");
+		stopWords.add("which");
+		stopWords.add("while");
+		stopWords.add("who");
+		stopWords.add("who's");
+		stopWords.add("whom");
+		stopWords.add("why");
+		stopWords.add("why's");
+		stopWords.add("with");
+		stopWords.add("won't");
+		stopWords.add("would");
+		stopWords.add("wouldn't");
+		stopWords.add("you");
+		stopWords.add("you'd");
+		stopWords.add("you'll");
+		stopWords.add("you're");
+		stopWords.add("you've");
+		stopWords.add("your");
+		stopWords.add("yours");
+		stopWords.add("yourself");
+		stopWords.add("yourselves");		     
     }
+	
+	public static void loadPosetiveLexicons() {
+        //load the PosetiveLexicons in the ArrayList
+		posetiveLexicons.clear();
+		posetiveLexicons.add("great");
+		posetiveLexicons.add("grateful");
+		posetiveLexicons.add("good");
+		posetiveLexicons.add("helpful");
+		posetiveLexicons.add("thankful");
+		posetiveLexicons.add("best");
+		posetiveLexicons.add("better");
+		posetiveLexicons.add("best");
+		posetiveLexicons.add("beyond");
+		posetiveLexicons.add("comfortable");
+		posetiveLexicons.add("commitment");
+		posetiveLexicons.add("committed");
+		posetiveLexicons.add("renew");
+		posetiveLexicons.add("register");
+		posetiveLexicons.add("unbelievable");
+		posetiveLexicons.add("unbelievably");
+		posetiveLexicons.add("awesome");
+		posetiveLexicons.add("wonderful");
+		
+	}
+	
+	public static void loadNegativeLexicons() {
+        //load the NegativeLexicons in the ArrayList
+		negativeLexicons.clear();
+		negativeLexicons.add("bad");
+		negativeLexicons.add("worse");
+		negativeLexicons.add("worst");
+		negativeLexicons.add("crazy");
+		negativeLexicons.add("confuse");
+		negativeLexicons.add("confused");
+		negativeLexicons.add("confusing");
+		negativeLexicons.add("disturb");
+		negativeLexicons.add("disturbance");
+		negativeLexicons.add("disturbed");
+		negativeLexicons.add("angry");
+		negativeLexicons.add("annoy");
+		negativeLexicons.add("annoyed");
+		negativeLexicons.add("annoying");
+		negativeLexicons.add("annoyingly");
+		negativeLexicons.add("refuse");
+		negativeLexicons.add("refused");
+		negativeLexicons.add("regret");
+		negativeLexicons.add("reject");
+		negativeLexicons.add("rejected");
+		negativeLexicons.add("repetitive");		
+		negativeLexicons.add("repetitively");
+		negativeLexicons.add("cancel");
+		negativeLexicons.add("discontinue");
+		negativeLexicons.add("terminate");
+		negativeLexicons.add("mad");
+		negativeLexicons.add("unhappy");
+		negativeLexicons.add("unhelpful");
+		negativeLexicons.add("unlucky");
+	}
 
 }
