@@ -5,6 +5,7 @@ package transcript;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author leti
@@ -19,8 +20,17 @@ public class Transcript {
     static public final List<String> posetiveLexicons  = new ArrayList<String>(); //keeping a number of posetiveLexicons 
     static public final List<String> negativeLexicons  = new ArrayList<String>(); //keeping a number of negativeLexicons 
     
+   
+    static public final List<String> sentencesList = new ArrayList<String>(); 	//part A
+    static public final List<String> wordsList  = new ArrayList<String>();		//part A
+    
+    
+    Object[] totalWordCount = new Object[2];
+    
+    
 	public Transcript() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -28,8 +38,72 @@ public class Transcript {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String sentence="This is 1a; phrase with stop words, like (example)";
+		//Part C
+		loadStopWords();
+		loadPosetiveLexicons();
+		loadNegativeLexicons();
+		//deleteStopWords(" this is a phrase with stop words like example");
+		
+		//part A
+		 Transcript obj =  new Transcript();
+		 obj.sentencesList.add(sentence);
+		 obj.extractWords(sentence);
+		 //obj.sentencesList.add(sentence);
+		 
+		 //System.out.println(sentencesList); 
 	}
+	
+	//part A
+	static public void extractWords(String sentece) {
+		String word="";
+		StringTokenizer token = new StringTokenizer(sentece.toLowerCase(), " ");
+		
+		while (token.hasMoreTokens()) {
+			word = token.nextToken().toString();
+			word =cleanWords(word);
+			//Part D
+			if (!stopWords.contains(word)){
+				wordsList.add(word);
+			}
+			
+		}
+		
+		System.out.println(wordsList); 
+	}
+	
+	//part B
+	static public String cleanWords(String word) {
+		String cleanWord="";
+		String newWord=word;
+		
+		cleanWord=newWord.replace(",", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("(", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace(")", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("[.]+", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("¡+", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("!+", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("-", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("_", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace("<", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace(">", "");
+		newWord=cleanWord;
+		cleanWord=newWord.replace(";", "");
+		//etc...
+		
+		return cleanWord;
+	}
+	
+	
 	
 	public static void loadStopWords() {
         //load the stopWords in the ArrayList
